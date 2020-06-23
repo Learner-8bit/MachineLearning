@@ -1,8 +1,4 @@
-# coding=utf-8
-# 都是抄别人的，侵权不究
-# typhoonbxq
-# the University of Hong Kong
-# Reference: http://blog.leanote.com/post/jevonswang/python%E8%AF%BB%E5%8F%96mnist%E6%95%B0%E6%8D%AE%E9%9B%86
+# 参考资料：https://blog.csdn.net/u011048251/article/details/51957496
 
 import numpy as np
 import struct
@@ -58,21 +54,13 @@ def loadLabelSet(filename):
 start = time.perf_counter();
 
 # Load training examples and tesing examples
-X_train = loadImageSet('/Users/zxj/Downloads/train-images.idx3-ubyte')
+X_train = loadImageSet('train-images.idx3-ubyte')   #Address
 X_train = X_train.reshape(60000, 784)
-y_train = loadLabelSet('/Users/zxj/Downloads/train-labels.idx1-ubyte')
+y_train = loadLabelSet('train-labels.idx1-ubyte')
 y_train = y_train.ravel()
-X_test = loadImageSet('/Users/zxj/Downloads/t10k-images.idx3-ubyte')
+X_test = loadImageSet('t10k-images.idx3-ubyte')
 X_test = X_test.reshape(10000, 784)
-y_test = loadLabelSet('/Users/zxj/Downloads/t10k-labels.idx1-ubyte')
-
-# Show one of the training example, this part is optional
-# i = 0
-# pic = X_train[i]
-# pic = pic.reshape(28,28,order = 'C')
-# plt.imshow(pic,cmap= cm.binary)
-# plt.show()
-# print 'the label of the picture is',y_train[i]
+y_test = loadLabelSet('t10k-labels.idx1-ubyte')
 
 # Train the model
 Model = KNeighborsClassifier(n_neighbors=5)
